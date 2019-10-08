@@ -1,11 +1,11 @@
 public class admin implements user
 {
-	public orderItem(item* item_)
+	public orderItem(inventory* inv, String itemName, int amount)
 	{
 		
 	}
 	
-	public void addUser(String name, string pass)
+	public void addUser(inventory* inv, String itemName, String pass)
 	{
 		
 		
