@@ -1,6 +1,6 @@
 public class item
 {
 	public String name;
-	public int amount[];
+	public int amount;
 	
 }
