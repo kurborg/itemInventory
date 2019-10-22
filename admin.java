@@ -1,4 +1,4 @@
-public class admin implements user
+public class admin implements employee
 {
 	public orderItem(inventory* inv, String itemName, int amount)
 	{
