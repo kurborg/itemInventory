@@ -1,14 +1,9 @@
-import java.util.InputMismatchException;
 import java.util.LinkedList;
-import java.util.Scanner;
-
 
 public class inventory
 {
-
-	final private Scanner reader = new Scanner(System.in);
 	
-	public void main()
+	public static void main(String[] args) 
 	{
 		boolean adminLogin = false; //
 		boolean employeeLogin = false;
@@ -24,7 +19,7 @@ public class inventory
 		
 		if(adminLogin)
 		{
-			choice = getAdminChoice();
+			choice = boss.getAdminChoice();
 			
 			while(choice != -1)
 			{
@@ -56,14 +51,14 @@ public class inventory
 					break;
 				}
 				
-				choice = getAdminChoice();
+				choice = boss.getAdminChoice();
 			}
 			
 			System.out.println("\n Goodbye!");
 		}
 		else if(employeeLogin)
 		{
-			choice = getEmployeeChoice();
+			choice = worker.getEmployeeChoice();
 			
 			while(choice != -1)
 			{
@@ -80,7 +75,7 @@ public class inventory
 					break;
 				}
 				
-				choice = getEmployeeChoice();
+				choice = worker.getEmployeeChoice();
 			}
 			
 			System.out.println("\n Goodbye!");
@@ -90,57 +85,6 @@ public class inventory
 		{
 			System.out.println("\nNo valid login!!!\n\n");
 		}
-	}
-	
-	public int getAdminChoice()
-	{
-		int choice;
-		
-		System.out.print("WELCOME TO THE INVENTORY MANAGEMENT SYSTEM" + "\n" + 
-		"===============================" + "\n" 
-		+ "1) Add Item" + "\n" + "2) Remove Item" + 
-		"\n" + "3) Add user" + "4) Remove user" + "5) Add Stock" + "6) Remove Stock" + "7) Check Stock of all items" + "\n\n" + 
-		"Please enter your option or -1 to quit: \n");
-		
-		choice = getIntInput();
-		return choice;
-	}
-	
-	public int getEmployeeChoice()
-	{
-		int choice;
-		
-		System.out.print("WELCOME TO THE INVENTORY MANAGEMENT SYSTEM" + "\n" + 
-				"===============================" + "\n" 
-				+ "1) Add Stock" + "\n" + "2) Remove Stock" + "\n\n" + 
-				"Please enter your option or -1 to quit: \n");
-		
-		choice = getIntInput();
-		return choice;
-	}
-	
-	public int getIntInput()
-	{
-		int num = 0;
-		
-		while(num == 0)
-		{
-			try
-			{
-				num = reader.nextInt();
-				
-				if (num == 0)
-					throw new InputMismatchException();
-				reader.nextLine();
-			}
-			catch(InputMismatchException e)
-			{
-				reader.nextLine();
-				System.out.println("\nError Invalid Input: Please try again");
-			}
-		}
-		
-		return num;
 	}
 	
 }

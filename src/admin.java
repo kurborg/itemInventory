@@ -114,4 +114,18 @@ public class admin extends employee
 						" is low on stock.\n It has a remaining amount of:" + invent.get(i).getAmount());
 		}
 	}
+	
+	public int getAdminChoice()
+	{
+		int choice;
+		
+		System.out.print("WELCOME TO THE INVENTORY MANAGEMENT SYSTEM" + "\n" + 
+		"===============================" + "\n" 
+		+ "1) Add Item" + "\n" + "2) Remove Item" + 
+		"\n" + "3) Add user" + "4) Remove user" + "5) Add Stock" + "6) Remove Stock" + "7) Check Stock of all items" + "\n\n" + 
+		"Please enter your option or -1 to quit: \n");
+		
+		choice = getIntInput();
+		return choice;
+	}
 }
