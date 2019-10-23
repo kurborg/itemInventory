@@ -22,13 +22,10 @@ public class employee
 	
 	public int login(String usern, String pass)
 	{
-		int success = 1;
-		int fail = 0;
-		
-		if(usern == name && pass == password)
-			return success;
+		if(usern.equals(name) && pass.equals(password))
+			return 1;
 		else 
-			return fail;
+			return 0;
 	}
 	
 	public void addStock(LinkedList<item> invent)
@@ -44,11 +41,16 @@ public class employee
 		
 		for(int i = 0; i < invent.size(); i++)
 		{
-			if(invent.get(i).getName() == name)
+			if(invent.get(i).getName().equals(name))
+			{
 				invent.get(i).amount += amount;
+				System.out.println("Item stock has been replenished!\n");
+				return;
+			}
 		}
 		
-		System.out.println("Item stock has been replenished!\n");
+		System.out.println("Item cannot be found!\n\n");
+		
 	}
 	
 	public void removeStock(LinkedList<item> invent)
@@ -59,17 +61,20 @@ public class employee
 		System.out.println("Please enter the item's name: \n");
 		name = reader.nextLine();
 		
-		System.out.println("Please enter the amount to add: \n");
+		System.out.println("Please enter the amount to remove: \n");
 		amount = getIntInput();
 		
 		for(int i = 0; i < invent.size(); i++)
 		{
-			if(invent.get(i).getName() == name)
+			if(invent.get(i).getName().equals(name))
+			{
 				invent.get(i).amount -= amount;
+				System.out.println("Item stock has been removed!\n");
+				return;
+			}
 		}
-		
 
-		System.out.println("Item stock has been removed!\n");
+		System.out.println("Item cannot be found!\n\n");
 	}
 	
 
