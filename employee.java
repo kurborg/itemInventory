@@ -1,9 +1,11 @@
+package itemInventory;
+
 public class employee
 {
 	private String name;
 	private String password;
 	
-	public addStock(inventory* inv, String itemName, int amount)
+	public addStock(LinkedList<item> invent)
 	{
 		for(int i = 0; i < inv.size(); i++)
 		{
@@ -12,7 +14,7 @@ public class employee
 		}
 	}
 	
-	public subtractStock(inventory* inv, String itemName, int amount)
+	public subtractStock(LinkedList<item> invent)
 	{
 		for(int i = 0; i < inv.size(); i++)
 		{

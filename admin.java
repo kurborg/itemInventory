@@ -1,11 +1,13 @@
+package itemInventory;
+
 public class admin implements user
 {
-	public orderItem(inventory* inv, String itemName, int amount)
+	public orderItem(LinkedList<item> invent)
 	{
 		
 	}
 	
-	public void addUser(inventory* inv, String itemName, String pass)
+	public void addUser(inventory inv, String itemName, String pass)
 	{
 		
 		
@@ -16,7 +18,7 @@ public class admin implements user
 		
 	}
 	
-	public addItem(String newItem)
+	public addItem(LinkedList<item> invent)
 	{
 		
 	}
