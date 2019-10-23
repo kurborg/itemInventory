@@ -10,7 +10,7 @@ public class inventory
 	
 	public void main()
 	{
-		boolean adminLogin = false;
+		boolean adminLogin = false; //
 		boolean employeeLogin = false;
 		int choice;
 
