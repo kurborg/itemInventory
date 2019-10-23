@@ -48,6 +48,9 @@ public class inventory
 				case 6:
 					boss.removeStock(invent);
 					break;
+				case 7:
+					boss.receiveAlerts(invent);
+					break;
 				default:
 					System.out.println("\nNot a valid Input");
 					break;
@@ -96,7 +99,7 @@ public class inventory
 		System.out.print("WELCOME TO THE INVENTORY MANAGEMENT SYSTEM" + "\n" + 
 		"===============================" + "\n" 
 		+ "1) Add Item" + "\n" + "2) Remove Item" + 
-		"\n" + "3) Add user" + "4) Remove user" + "5) Add Stock" + "6) Remove Stock" + "\n\n" + 
+		"\n" + "3) Add user" + "4) Remove user" + "5) Add Stock" + "6) Remove Stock" + "7) Check Stock of all items" + "\n\n" + 
 		"Please enter your option or -1 to quit: \n");
 		
 		choice = getIntInput();
