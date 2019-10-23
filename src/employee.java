@@ -98,4 +98,18 @@ public class employee
 		
 		return num;
 	}
+	
+
+	public int getEmployeeChoice()
+	{
+		int choice;
+		
+		System.out.print("WELCOME TO THE INVENTORY MANAGEMENT SYSTEM" + "\n" + 
+				"===============================" + "\n" 
+				+ "1) Add Stock" + "\n" + "2) Remove Stock" + "\n\n" + 
+				"Please enter your option or -1 to quit: \n");
+		
+		choice = getIntInput();
+		return choice;
+	}
 }
