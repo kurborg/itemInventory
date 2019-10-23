@@ -23,6 +23,9 @@ public class inventory
 		//System.out.println(boss.getName());
 		//System.out.println(boss.getPassword());
 		//LOGIN ACCESS GOES HERE
+		//IF THEY CLICK ADMIN LOGIN THEN LOGINCHOICE == 1
+		//IF THEY CLICK EMPLOYEE LOGIN THEN LOGINCHOICE == 2
+		//IF THEY CLICK CANCEL THEN EXIT THE PROGRAM
 
 		System.out.println("Press 1 to login as admin or 2 to login as an employee: ");
 		
@@ -135,7 +138,7 @@ public class inventory
 		
 	else
 	{
-		System.out.println("\nNo valid login choice!!!\n\n");
+		System.out.println("\nNo valid login choice!!!\nGoodbye!\n");
 	}
 		
 		reader.close();

@@ -134,9 +134,11 @@ public class admin extends employee
 	{
 		for(int i = 0; i < invent.size(); i++)
 		{
+			System.out.println("Item: " + invent.get(i).getName() + 
+					"\nAmount:" + invent.get(i).getAmount() + "\n");
 			if(invent.get(i).getAmount() < 5)
 				System.out.println("Item: " + invent.get(i).getName() + 
-						" is low on stock.\n It has a remaining amount of:" + invent.get(i).getAmount());
+						" is low on stock.\nIt has a remaining amount of:" + invent.get(i).getAmount() + "\n\n");
 		}
 		
 		if(invent.size() < 1)
