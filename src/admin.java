@@ -39,10 +39,11 @@ public class admin extends employee
 			return 0;
 	}
 	
-	public void addItem(LinkedList<item> invent)
+	public String addItem(LinkedList<item> invent)
 	{
 		String name;
 		int amount;
+		String retItem;
 		
 		System.out.println("Please enter the item's name: \n");
 		name = reader.nextLine();
@@ -53,8 +54,11 @@ public class admin extends employee
 		item newItem = new item(name, amount);
 		
 		invent.add(newItem);
+		retItem = newItem.toString();
 		
 		System.out.println("Item has been added to inventory! \n");
+		
+		return retItem;
 	}
 	
 
@@ -80,11 +84,12 @@ public class admin extends employee
 		
 	}
 	
-	public void addUser(LinkedList<employee> users)
+	public String addUser(LinkedList<employee> users)
 	{
 		
 		String name;
 		String password;
+		String retEmp;
 		
 		System.out.println("Please enter the employee's name: \n");
 		name = reader.nextLine();
@@ -96,8 +101,11 @@ public class admin extends employee
 		
 		users.add(newEmployee);
 		
+		retEmp = newEmployee.toString();
 
 		System.out.println("Employee has been added to system! \n");
+		
+		return retEmp;
 	}
 	
 	public void removeUser(LinkedList<employee> users)
@@ -135,7 +143,7 @@ public class admin extends employee
 		for(int i = 0; i < invent.size(); i++)
 		{
 			System.out.println("Item: " + invent.get(i).getName() + 
-					"\nAmount:" + invent.get(i).getAmount() + "\n");
+					"\nAmount: " + invent.get(i).getAmount() + "\n");
 			if(invent.get(i).getAmount() < 5)
 				System.out.println("Item: " + invent.get(i).getName() + 
 						" is low on stock.\nIt has a remaining amount of:" + invent.get(i).getAmount() + "\n\n");

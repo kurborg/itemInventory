@@ -105,6 +105,10 @@ public class employee
 	}
 	
 
+	public String toString()
+	{
+		return name + "," + password;
+	}
 	
 	public int getEmployeeChoice()
 	{

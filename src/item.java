@@ -28,5 +28,10 @@ public class item
 		this.amount = amount;
 	}
 	
+	public String toString()
+	{
+		return name + "," + amount;
+	}
+	
 
 }

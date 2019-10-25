@@ -13,9 +13,13 @@ public class inventory
 		int loginChoice = 0;
 		String usern;
 		String passw;
+		String retEmp;
+		String retItem;
+		fileHandler fh = new fileHandler();
+		fileHandlerInventory fhi = new fileHandlerInventory();
 
-		LinkedList<item> invent = new LinkedList<item> ();
-		LinkedList<employee> users = new LinkedList<employee> ();
+		LinkedList<item> invent = fhi.readFile();
+		LinkedList<employee> users = fh.readFile();
 		
 		admin boss = new admin("admin", "password");
 		employee worker = new employee("employee", "password");
@@ -65,22 +69,28 @@ public class inventory
 					switch(choice)
 					{
 					case 1:
-						boss.addItem(invent);
+						retItem = boss.addItem(invent);
+						fhi.appendFile(retItem);
 						break;
 					case 2:
 						boss.removeItem(invent);
+						fhi.overwriteFile(invent);
 						break;
 					case 3:
-						boss.addUser(users);
+						retEmp = boss.addUser(users);
+						fh.appendFile(retEmp);
 						break;
 					case 4:
 						boss.removeUser(users);
+						fh.overwriteFile(users);
 						break;
 					case 5:
 						boss.addStock(invent);
+						fhi.overwriteFile(invent);
 						break;
 					case 6:
 						boss.removeStock(invent);
+						fhi.overwriteFile(invent);
 						break;
 					case 7:
 						boss.receiveAlerts(invent);
@@ -118,9 +128,11 @@ public class inventory
 					{
 					case 1:
 						worker.addStock(invent);
+						fhi.overwriteFile(invent);
 						break;
 					case 2:
 						worker.removeStock(invent);
+						fhi.overwriteFile(invent);
 						break;
 					default:
 						System.out.println("\nNot a valid Input");
