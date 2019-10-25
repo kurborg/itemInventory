@@ -138,20 +138,16 @@ public class admin extends employee
 		
 	}
 	
-	public void receiveAlerts(LinkedList<item> invent)
+	public void showEmployees(LinkedList<employee> empl)
 	{
-		for(int i = 0; i < invent.size(); i++)
+		for(int i = 0; i < empl.size(); i++)
 		{
-			System.out.println("Item: " + invent.get(i).getName() + 
-					"\nAmount: " + invent.get(i).getAmount() + "\n");
-			if(invent.get(i).getAmount() < 5)
-				System.out.println("Item: " + invent.get(i).getName() + 
-						" is low on stock.\nIt has a remaining amount of:" + invent.get(i).getAmount() + "\n\n");
+			System.out.println("Employee: " + empl.get(i).getName());
 		}
 		
-		if(invent.size() < 1)
+		if(empl.size() < 1)
 		{
-			System.out.println("The inventory contains no items!\n\n");
+			System.out.println("The employee database contains no employees!\n\n");
 		}
 	}
 	
@@ -159,11 +155,11 @@ public class admin extends employee
 	{
 		int choice;
 		
-		System.out.print("WELCOME TO THE INVENTORY MANAGEMENT SYSTEM" + "\n" + 
+		System.out.print("\n\nWELCOME TO THE INVENTORY MANAGEMENT SYSTEM" + "\n" + 
 		"===============================" + "\n" 
-		+ "1) Add Item\n" + "2) Remove Item\n" + "3) Add user\n" + 
-		"4) Remove user\n" + "5) Add Stock\n" + "6) Remove Stock\n" + 
-		"7) Check Stock of all items\n\n\n" + 
+		+ "1) Add Item\n" + "2) Remove Item\n" + "3) Add User\n" + 
+		"4) Remove User\n" + "5) Add Stock\n" + "6) Remove Stock\n" + 
+		"7) Show Inventory\n" + "8) Show Users\n\n" + 
 		"Please enter your option or -1 to quit: \n");
 		
 		choice = getIntInput();

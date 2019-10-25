@@ -8,6 +8,7 @@ public class inventory
 	public static void main(String[] args) 
 	{
 
+		@SuppressWarnings("resource")
 		Scanner reader = new Scanner(System.in);
 		int choice;
 		int loginChoice = 0;
@@ -22,7 +23,7 @@ public class inventory
 		LinkedList<employee> users = fh.readFile();
 		
 		admin boss = new admin("admin", "password");
-		employee worker = new employee("employee", "password");
+		
 		
 		//System.out.println(boss.getName());
 		//System.out.println(boss.getPassword());
@@ -95,6 +96,9 @@ public class inventory
 					case 7:
 						boss.receiveAlerts(invent);
 						break;
+					case 8:
+						boss.showEmployees(users);
+						break;
 					default:
 						System.out.println("\nNot a valid Input");
 						break;
@@ -118,36 +122,47 @@ public class inventory
 			System.out.println("Please enter the employee password: \n");
 			passw = reader.nextLine();
 			
-			if (worker.login(usern, passw) == 1)
+			for(int i = 0; i < users.size(); i++)
 			{
-				choice = worker.getEmployeeChoice();
-				
-				while(choice != -1)
+				if(users.get(i).getName().equals(usern) && users.get(i).getPassword().equals(passw))
 				{
-					switch(choice)
-					{
-					case 1:
-						worker.addStock(invent);
-						fhi.overwriteFile(invent);
-						break;
-					case 2:
-						worker.removeStock(invent);
-						fhi.overwriteFile(invent);
-						break;
-					default:
-						System.out.println("\nNot a valid Input");
-						break;
-					}
+					employee worker = new employee(usern,passw);
 					
-					choice = worker.getEmployeeChoice();
+					if (worker.login(usern, passw) == 1)
+					{
+						choice = worker.getEmployeeChoice();
+						
+						while(choice != -1)
+						{
+							switch(choice)
+							{
+							case 1:
+								worker.addStock(invent);
+								fhi.overwriteFile(invent);
+								break;
+							case 2:
+								worker.removeStock(invent);
+								fhi.overwriteFile(invent);
+								break;
+							case 3:
+								worker.receiveAlerts(invent);
+								break;
+							default:
+								System.out.println("\nNot a valid Input");
+								break;
+							}
+							
+							choice = worker.getEmployeeChoice();
+						}
+						
+						System.out.println("\n Goodbye!");
+						return;
+					}
 				}
-				
-				System.out.println("\n Goodbye!");
 			}
-			else
 				System.out.println("Incorrect Login and Password! Goodbye");
-		}
-		
+			}
+			
 	else
 	{
 		System.out.println("\nNo valid login choice!!!\nGoodbye!\n");

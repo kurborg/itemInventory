@@ -10,6 +10,14 @@ public class employee
 	private String password;
 	final private Scanner reader = new Scanner(System.in);
 	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	employee(String username, String passw)
 	{
 		name = username;
@@ -79,6 +87,25 @@ public class employee
 	
 
 	
+	public void receiveAlerts(LinkedList<item> invent)
+	{
+		for(int i = 0; i < invent.size(); i++)
+		{
+			System.out.println("Item: " + invent.get(i).getName() + 
+					"\nAmount: " + invent.get(i).getAmount() + "\n");
+			if(invent.get(i).getAmount() < 5)
+				System.out.println("Item: " + invent.get(i).getName() + 
+						" is low on stock.\nIt has a remaining amount of:" + invent.get(i).getAmount() + "\n\n");
+		}
+		
+		if(invent.size() < 1)
+		{
+			System.out.println("The inventory contains no items!\n\n");
+		}
+	}
+	
+
+	
 	
 	public int getIntInput()
 	{
@@ -114,9 +141,9 @@ public class employee
 	{
 		int choice;
 		
-		System.out.print("WELCOME TO THE INVENTORY MANAGEMENT SYSTEM" + "\n" + 
+		System.out.print("\n\nWELCOME TO THE INVENTORY MANAGEMENT SYSTEM" + "\n" + 
 				"===============================" + "\n" 
-				+ "1) Add Stock" + "\n" + "2) Remove Stock" + "\n\n" + 
+				+ "1) Add Stock\n" + "2) Remove Stock\n" + "3) Show Inventory\n\n"+ 
 				"Please enter your option or -1 to quit: \n");
 		
 		choice = getIntInput();
