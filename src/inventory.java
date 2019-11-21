@@ -1,4 +1,3 @@
-import java.util.InputMismatchException;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -10,8 +9,7 @@ public class inventory
 
 		@SuppressWarnings("resource")
 		Scanner reader = new Scanner(System.in);
-		int choice;
-		int loginChoice = 0;
+		int choice = 0;
 		String usern;
 		String passw;
 		String retEmp;
@@ -28,48 +26,21 @@ public class inventory
 		//System.out.println(boss.getName());
 		//System.out.println(boss.getPassword());
 		//LOGIN ACCESS GOES HERE
-		//IF THEY CLICK ADMIN LOGIN THEN LOGINCHOICE == 1
-		//IF THEY CLICK EMPLOYEE LOGIN THEN LOGINCHOICE == 2
-		//IF THEY CLICK CANCEL THEN EXIT THE PROGRAM
 
-		System.out.println("Press 1 to login as admin or 2 to login as an employee: ");
+		//INSERT LOGIN HERE
+		//ASSIGN TEXTBOX TO EQUAL STRING <USERN>
+		//ASSIGN TEXTBOX TO EQUAL PASSW
 		
-		while(loginChoice == 0)
+		System.out.println("Please enter the username: \n");
+		usern = reader.nextLine();
+		
+		System.out.println("Please enter the password: \n");
+		passw = reader.nextLine();
+		
+		
+		if(boss.login(usern, passw) == 1)
 		{
-			try
-			{
-				loginChoice = reader.nextInt();
-				
-				if (loginChoice == 0)
-					throw new InputMismatchException();
-				reader.nextLine();
-			}
-			catch(InputMismatchException e)
-			{
-				reader.nextLine();
-				System.out.println("\nError Invalid Input: Please try again");
-			}
-		}
-		
-		
-		if(loginChoice == 1)
-		{
-			//INSERT ADMIN LOGIN HERE
-			//ASSIGN TEXTBOX TO EQUAL STRING <USERN>
-			//ASSIGN TEXTBOX TO EQUAL PASSW
 			
-			System.out.println("Please enter the admin username: \n");
-			usern = reader.nextLine();
-			
-			System.out.println("Please enter the admin password: \n");
-			passw = reader.nextLine();
-			
-			if (boss.login(usern, passw) == 1)
-			{
-				//INSERT ADMIN MAIN SCRREEN HERE AND TRIGGER 
-				//THE BUTTONS TO CORRESPOND TO EACH CASE STATEMENT
-				choice = boss.getAdminChoice();
-				
 				while(choice != -1)
 				{
 					switch(choice)
@@ -113,22 +84,10 @@ public class inventory
 				}
 				
 				System.out.println("\n Goodbye!");
+				return;
 			}
-			else
-				System.out.println("Incorrect Login and Password! Goodbye");
-		}
-		else if(loginChoice == 2)
-		{
-			//INSERT EMPLOYEE LOGIN HERE
-			//ASSIGN TEXTBOX TO EQUAL STRING <USERN>
-			//ASSIGN TEXTBOX TO EQUAL PASSW
-			
-			System.out.println("Please enter the employee username: \n");
-			usern = reader.nextLine();
-			
-			System.out.println("Please enter the employee password: \n");
-			passw = reader.nextLine();
-			
+		
+		
 			for(int i = 0; i < users.size(); i++)
 			{
 				if(users.get(i).getName().equals(usern) && users.get(i).getPassword().equals(passw))
@@ -171,15 +130,5 @@ public class inventory
 					}
 				}
 			}
-				System.out.println("Incorrect Login and Password! Goodbye");
-			}
-			
-	else
-	{
-		System.out.println("\nNo valid login choice!!!\nGoodbye!\n");
 	}
-		
-		reader.close();
-	}
-	
 }
