@@ -28,8 +28,8 @@ public class inventory
 		//LOGIN ACCESS GOES HERE
 
 		//INSERT LOGIN HERE
-		//ASSIGN TEXTBOX TO EQUAL STRING <USERN>
-		//ASSIGN TEXTBOX TO EQUAL PASSW
+		//ASSIGN TEXTBOX TO EQUAL STRING <usern>
+		//ASSIGN TEXTBOX TO EQUAL STRING <passw>
 		
 		System.out.println("Please enter the username: \n");
 		usern = reader.nextLine();
@@ -40,6 +40,10 @@ public class inventory
 		
 		if(boss.login(usern, passw) == 1)
 		{
+
+			//INSERT ADMIN MAIN SCRREEN HERE AND TRIGGER
+			//THE BUTTONS TO CORRESPOND TO INT <choice> FOR EACH CASE STATEMENT
+			//-1 = EXIT OR LOGOUT 
 			
 				while(choice != -1)
 				{
@@ -97,8 +101,9 @@ public class inventory
 					if (worker.login(usern, passw) == 1)
 					{
 						
-						//INSERT EMPLOYEE MAIN SCRREEN HERE AND TRIGGER 
-						//THE BUTTONS TO CORRESPOND TO EACH CASE STATEMENT
+						//INSERT EMPLOYEE MAIN SCRREEN HERE AND TRIGGER
+						//THE BUTTONS TO CORRESPOND TO INT <choice> FOR EACH CASE STATEMENT
+						//-1 = EXIT OR LOGOUT 
 						
 						choice = worker.getEmployeeChoice();
 						

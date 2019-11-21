@@ -14,7 +14,7 @@ public class fileHandler {
 			{
 				lineRead = reader.readLine();
 				while(lineRead != null)	
-				{
+				{ 
 					splitLine = lineRead.split(",");
 					emp = new employee(splitLine[0],splitLine[1]);
 					
