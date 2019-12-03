@@ -5,6 +5,9 @@ import java.util.Scanner;
 public class employee
 {
 	private String name;
+	
+
+	fileHandlerTransactionHistory fht = new fileHandlerTransactionHistory();
 
 
 	private String password;
@@ -53,6 +56,7 @@ public class employee
 			{
 				invent.get(i).amount += amount;
 				System.out.println("Item stock has been replenished!\n");
+				fht.appendFile(getName(), name, amount);
 				return;
 			}
 		}
@@ -78,6 +82,7 @@ public class employee
 			{
 				invent.get(i).amount -= amount;
 				System.out.println("Item stock has been removed!\n");
+				fht.appendFile(getName(), name, (-1 * amount));
 				return;
 			}
 		}

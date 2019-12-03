@@ -7,6 +7,9 @@ public class admin extends employee
 	private String password;
 	final private Scanner reader = new Scanner(System.in);
 	
+	fileHandlerTransactionHistory fht = new fileHandlerTransactionHistory();
+	
+	
 	admin(String adminName, String adminPass)
 	{
 		super(adminName, adminPass);
@@ -57,6 +60,7 @@ public class admin extends employee
 		retItem = newItem.toString();
 		
 		System.out.println("Item has been added to inventory! \n");
+		fht.appendFile("admin", name, amount);
 		
 		return retItem;
 	}
@@ -75,6 +79,7 @@ public class admin extends employee
 			{
 				invent.remove(i);
 				System.out.println("Item has been removed inventory! \n");
+				
 				return;
 			}
 		}
@@ -104,6 +109,7 @@ public class admin extends employee
 		retEmp = newEmployee.toString();
 
 		System.out.println("Employee has been added to system! \n");
+		fht.appendFileEmp(name);
 		
 		return retEmp;
 	}
@@ -128,6 +134,7 @@ public class admin extends employee
 				{
 					users.remove(i);
 					System.out.println("Employee has been removed from the system! \n");
+					fht.appendFileRemEmp(name);
 					return;
 				}
 			}
