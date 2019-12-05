@@ -23,8 +23,6 @@ public class inventory
 		admin boss = new admin("admin", "password");
 		
 		
-		//System.out.println(boss.getName());
-		//System.out.println(boss.getPassword());
 		//LOGIN ACCESS GOES HERE
 
 		//INSERT LOGIN HERE
